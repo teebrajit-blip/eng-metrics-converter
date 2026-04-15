@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EngConverter | NIT Silchar Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10 flex flex-col items-center">
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
+        <h1 class="text-2xl font-bold text-blue-900 mb-6 text-center">Engineering Converter</h1>
+        
+        <label class="block mb-2 font-semibold">Value to Convert:</label>
+        <input id="inputVal" type="number" class="w-full p-3 border rounded-lg mb-4" placeholder="e.g., 100">
+
+        <label class="block mb-2 font-semibold">Calculation Type:</label>
+        <select id="calcType" class="w-full p-3 border rounded-lg mb-6">
+            <option value="0.2248">Force (N to lbf)</option>
+            <option value="0.0240">Moment of Inertia (cm4 to in4)</option>
+            <option value="0.0001">Pressure (Pa to psi)</option>
+        </select>
+
+        <button onclick="calculate()" class="w-full bg-blue-700 text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition">
+            Calculate Result
+        </button>
+
+        <div id="output" class="mt-8 text-3xl font-mono text-center text-blue-800 font-bold">0.0000</div>
+    </div>
+
+    <script>
+        function calculate() {
+            const val = document.getElementById('inputVal').value;
+            const factor = document.getElementById('calcType').value;
+            const result = (val * factor).toFixed(4);
+            document.getElementById('output').innerText = result;
+        }
+    </script>
+</body>
+</html>
